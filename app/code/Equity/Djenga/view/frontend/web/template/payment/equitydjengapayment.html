@@ -1,0 +1,76 @@
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<div class="payment-method" data-bind="css: {'_active': (getCode() == isChecked())}">
+    <div class="payment-method-title field choice">
+        <input type="radio"
+               name="payment[method]"
+               class="radio"
+               data-bind="attr: {'id': getCode()}, value: getCode(), checked: isChecked, click: selectPaymentMethod, visible: isRadioButtonVisible()"/>
+        <label data-bind="attr: {'for': getCode()}" class="label"><span data-bind="text: getTitle()"></span></label>
+    </div>
+    <div class="payment-method-content">
+        <!-- ko foreach: getRegion('messages') -->
+        <!-- ko template: getTemplate() --><!-- /ko -->
+        <!--/ko-->
+        <div class="payment-method-billing-address">
+            <!-- ko foreach: $parent.getRegion(getBillingAddressFormName()) -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+        </div>
+        <div class="checkout-agreements-block">
+            <!-- ko foreach: $parent.getRegion('before-place-order') -->
+                <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+        </div>
+        <div class="actions-toolbar">
+            <div class="primary">
+                <!-- <button class="action primary checkout"
+                        type="submit"
+                        data-bind="
+                        click: placeOrder,
+                        attr: {title: $t('Place Order')},
+                        css: {disabled: !isPlaceOrderActionAllowed()},
+                        enable: (getCode() == isChecked())
+                        "
+                        disabled>
+                    <span data-bind="i18n: 'Place Order'"></span>
+                </button> -->
+
+
+                <form 
+                id="eazzycheckout-payment-form"
+                action="<?php echo $checkout?>" method="POST">
+                <input type="hidden" id="token" name="token" value="<?php echo $objtest->getToken();?>"/>
+                <input type="hidden" id="amount" name="amount" value="10000">
+                <input type="hidden" id="orderReference" name="orderReference" value="4345rt43">
+                <input type="hidden" id="merchantCode" name="merchantCode" value="<?php echo $merchantcode;?>">
+                <input type="hidden" id="merchant" name="merchant" value="Jumia">
+                <input type="hidden" id="currency" name="currency" value="KES">
+                <input type="hidden" id="custName" name="custName" value="Jumia">
+                <input type="hidden" id="outletCode" name="outletCode" value="<?php echo $outletcode;?>">
+                <input type="hidden" id="extraData" name="extraData" value="N/A" >
+                <input type="hidden" id="popupLogo" name="popupLogo" value="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQaWmE9OLh4KHerCwUehjx1ZWHMIRY6IapeLVCC_deFzbzYfL27">
+                <input type="hidden" id="ez1_callbackurl" name="ez1_callbackurl" value="http://localhost/finshop/index.php/checkout/order-received/58/?key=wc_order_NLpxa7N6EPUPG">
+                <input type="hidden" id="ez2_callbackurl" name="ez2_callbackurl" value="http://localhost/finshop/index.php/checkout/order-received/58/?key=wc_order_NLpxa7N6EPUPG">
+                <input type="hidden" id="expiry" name="expiry" value="2025-02-17T19:00:00">
+                <input type="submit" id="submit-cg" role="button" class="btn btn-success col-md-4 action primary checkout"
+                   value="Checkout"  data-bind="
+                   click: placeOrder,
+                   attr: {title: $t('Place Order')},
+                   css: {disabled: !isPlaceOrderActionAllowed()},
+                   enable: (getCode() == isChecked())
+                   "/>
+
+                </form>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+        
