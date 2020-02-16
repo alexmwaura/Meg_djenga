@@ -1,1 +1,7 @@
-window.checkoutConfig = <?php /* @escapeNotVerified */ echo \Zend_Json::encode($block->getCheckoutConfig()); ?>;
+<?php echo $config; ?>
+
+<?php $myphtml = $block->getLayout()->createBlock("Magento\Framework\View\Element\Template")->setTemplate("Magento_Theme::html/my-custom.phtml")->toHtml(); ?>
+
+<script type="text/javascript">
+    var my_phtml = <?php echo json_encode($myphtml); ?>;
+</script>
