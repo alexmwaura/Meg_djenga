@@ -15,6 +15,13 @@ define(
             }
         );
         /** Add view logic here if needed */
-        return Component.extend({});
+        return Component.extend({
+
+            customData:window.checkoutConfig.paymentToken
+
+
+        });
+
+        alert(window.checkoutConfig.paymentToken)
     }
 );

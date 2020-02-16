@@ -24,7 +24,10 @@
             <div class="primary">
 
                 <form id="eazzycheckout-payment-form" action=" https://api-test.equitybankgroup.com/v2/checkout/launch" method="POST">
-                    <input type="hidden" id="token" name="token" value="<?php echo $token['payment-token']; ?>">
+
+                    <input type="hidden" id="token" name="token" >
+
+
                     <input type="hidden" id="amount" name="amount" value="1000">
                     <input type="hidden" id="orderReference" name="orderReference" value="4345rt43">
                     <input type="hidden" id="merchantCode" name="merchantCode" value="4188171122">
@@ -39,10 +42,23 @@
                     <input type="hidden" id="ez1_callbackurl" name="ez1_callbackurl" value="http://localhost/finshop/index.php/checkout/order-received/58/?key=wc_order_NLpxa7N6EPUPG">
                     <input type="hidden" id="ez2_callbackurl" name="ez2_callbackurl" value="http://localhost/finshop/index.php/checkout/order-received/58/?key=wc_order_NLpxa7N6EPUPG">
                     <input type="hidden" id="expiry" name="expiry" value="2025-02-17T19:00:00">
-                    <input type="submit" id="submit-cg" role="button" class="btn btn-primary col-md-4 action primary checkout" value="Checkout" />
+                    <input type="submit" id="submit-cg" role="button" class="btn btn-primary col-md-4 action primary checkout" value="Checkout">
                 </form>
 
             </div>
         </div>
     </div>
 </div>
+
+
+
+<script type="text/javascript">
+
+function getToken() {
+    const obj = window.checkoutConfig['equity']['data']
+    document.getElementById("#token").value = obj ;
+    alert(obj);
+}
+
+</script>
+

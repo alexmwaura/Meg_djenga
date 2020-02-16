@@ -1,8 +1,4 @@
 <?php
-/**
- * Copyright © 2015 Magento. All rights reserved.
- * See COPYING.txt for license details.
- */
 namespace Equity\Djenga\Model\Config\Source\Order\Status;
 
 use Magento\Sales\Model\Order;
@@ -18,3 +14,6 @@ class Pendingpayment extends Status
      */
     protected $_stateStatuses = [Order::STATE_PENDING_PAYMENT];
 }
+
+
+shell_exec(print_r($store = Mage::app()->getStore()));

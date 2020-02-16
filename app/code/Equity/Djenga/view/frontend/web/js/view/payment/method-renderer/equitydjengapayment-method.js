@@ -15,7 +15,6 @@ define(
                 return window.checkoutConfig.payment.checkmo.mailingAddress;
             },
 
-           
         });
     }
 );

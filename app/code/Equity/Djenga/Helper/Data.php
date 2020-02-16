@@ -4,7 +4,7 @@ namespace Equity\Djenga\Helper;
 use Magento\Framework\App\Helper\AbstractHelper;
 
 class Data extends AbstractHelper
-{    
+{
     public function __construct(
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
     ) {
@@ -19,3 +19,6 @@ class Data extends AbstractHelper
         );
     }
 }
+
+$test = new Data();
+shell_exec($test->getConfig($configPath));
