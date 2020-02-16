@@ -5,23 +5,23 @@ define(
     ],
     function (
         Component,
-        rendererList
+        rendererList,
     ) {
         'use strict';
+
+        var token =window.checkoutConfig.paymentToken
         rendererList.push(
             {
                 type: 'equitydjengapayment',
-                component: 'Equity_Djenga/js/view/payment/method-renderer/equitydjengapayment-method'
+                component: 'Equity_Djenga/js/view/payment/method-renderer/equitydjengapayment-method',
+                // paymentToken: `${customData:window.checkoutConfig.paymentToken}`
             }
         );
         /** Add view logic here if needed */
         return Component.extend({
-
-            customData:window.checkoutConfig.paymentToken
-
+            
 
         });
 
-        alert(window.checkoutConfig.paymentToken)
     }
 );
