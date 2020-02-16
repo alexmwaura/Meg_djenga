@@ -31,7 +31,6 @@ class AdditionalConfigProvider implements ConfigProviderInterface
         $grant_type = $this->grant_type;
         $pass_word = $this->pass_word;
         $merchant_code = $this->merchant_code;
-//        $auth_key = $this->auth_key;
         $url = $this->url;
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL,$url);
@@ -47,30 +46,15 @@ class AdditionalConfigProvider implements ConfigProviderInterface
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $server_output = curl_exec ($ch);
         $token = json_decode($server_output, true);
-//        echo $token['payment-token'];
         curl_close ($ch);
 
 
-        return [
+        $config = [];
+        $config['paymentToken'] = $token['payment-token'];
+        return $config;
 
-            'equity' => [
-                'data' => $token['payment-token'],
 
-            ],
-        ];
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }
