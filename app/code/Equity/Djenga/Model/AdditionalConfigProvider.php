@@ -3,6 +3,7 @@ namespace Equity\Djenga\Model;
 
 use Magento\Checkout\Model\ConfigProviderInterface;
 
+
 /**
  * Class SampleConfigProvider
  */
@@ -20,6 +21,8 @@ class AdditionalConfigProvider implements ConfigProviderInterface
     public $url = "https://api-test.equitybankgroup.com/v1/token";
     public $pass_word = "TGvBoRGAcdzuhCs1l0NW2219IsgXQvLU";
     public $grant_type = "password";
+
+
 
 
 
@@ -58,8 +61,6 @@ class AdditionalConfigProvider implements ConfigProviderInterface
 
 
 }
-
-
 
 
 
