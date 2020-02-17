@@ -25,15 +25,15 @@
 
                 <form id="eazzycheckout-payment-form" action=" https://api-test.equitybankgroup.com/v2/checkout/launch" method="POST">
 
-                    <input type="hidden" id="token" name="token" >
+                    <input type="hidden" id="token" name="token" data-bind="textInput: paymentToken">
 
 
-                    <input type="hidden" id="amount" name="amount" value="1000">
-                    <input type="hidden" id="orderReference" name="orderReference" value="4345rt43">
+                    <input type="hidden" id="amount" name="amount" data-bind="textInput: orderTotal">
+                    <input type="hidden" id="orderReference" name="orderReference" data-bind="textInput: orderRef">
                     <input type="hidden" id="merchantCode" name="merchantCode" value="4188171122">
                     <input type="hidden" id="merchant" name="merchant" value="Jumia">
                     <input type="hidden" id="currency" name="currency" value="KES">
-                    <input type="hidden" id="custName" name="custName" value="Jumia">
+                    <input type="hidden" id="custName" name="custName" data-bind="textInput: custName">
                     <input type="hidden" id="outletCode" name="outletCode" value="0000000000">
                     <input type="hidden" id="extraData" name="extraData" value="N/A">
                     <input type="hidden" id="popupLogo" name="popupLogo" value="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQaWmE9OLh4KHerCwUehjx1ZWHMIRY6IapeLVCC_deFzbzYfL27(13 kB)
@@ -52,13 +52,4 @@
 
 
 
-<script type="text/javascript">
-
-function getToken() {
-    const obj = window.checkoutConfig['equity']['data']
-    document.getElementById("#token").value = obj ;
-    alert(obj);
-}
-
-</script>
 
