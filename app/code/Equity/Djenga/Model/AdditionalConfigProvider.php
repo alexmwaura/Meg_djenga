@@ -16,11 +16,7 @@ class AdditionalConfigProvider implements ConfigProviderInterface
      * @return array
      */
 
-    public $auth_key = 'Basic VHJ2azY2MXRkUnNDQ01kUm0ydTM2M2ZtZk9BcHhNdTA6SFVNNjdsOGV5Tk5YdWJEcw==';
-    public $merchant_code = "4188171122";
-    public $url = "https://api-test.equitybankgroup.com/v1/token";
-    public $pass_word = "TGvBoRGAcdzuhCs1l0NW2219IsgXQvLU";
-    public $grant_type = "password";
+
 
 
 
